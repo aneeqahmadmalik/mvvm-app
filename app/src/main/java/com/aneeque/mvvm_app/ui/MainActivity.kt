@@ -5,10 +5,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aneeque.mvvm_app.helpers.ProgressHelper
-import com.aneeque.mvvm_app.viewmodel.PhotosViewModel
+import com.aneeque.mvvm_app.R
 import com.aneeque.mvvm_app.adapter.PhotosAdapter
 import com.aneeque.mvvm_app.databinding.ActivityMainBinding
+import com.aneeque.mvvm_app.helpers.ProgressHelper
+import com.aneeque.mvvm_app.viewmodel.PhotosViewModel
 
 private const val TAG = "MainActivityTAG"
 
@@ -23,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
 
         photosViewModel = ViewModelProvider(this)[PhotosViewModel::class.java]
-        photosViewModel.getPhotos()
-        ProgressHelper.showProgressDialog(this, "Loading...")
+
+        ProgressHelper.showProgressDialog(this, getString(R.string.fetching_photos_from_server))
         photosViewModel.observePhotosLiveData().observe(this) { photosList ->
             if (photosList.isSuccessful) {
                 ProgressHelper.dismissDialog()
