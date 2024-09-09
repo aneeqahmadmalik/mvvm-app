@@ -13,7 +13,7 @@ private const val TAG = "PhotosRepositoryTAG"
 object PhotosRepository {
     private var photosLiveData = MutableLiveData<Response<List<PhotosResponseItem>>>()
 
-    fun getPhotos() : MutableLiveData<Response<List<PhotosResponseItem>>>{
+    fun getPhotos(): MutableLiveData<Response<List<PhotosResponseItem>>> {
         val call = RetrofitInstance.apiInterface.getPhotos()
 
         call.enqueue(object :

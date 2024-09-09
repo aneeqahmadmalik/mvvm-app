@@ -30,11 +30,9 @@ class MainActivity : AppCompatActivity() {
             if (photosList.isSuccessful) {
                 ProgressHelper.dismissDialog()
                 binding.rvPhotos.visibility = View.VISIBLE
-                photosList.body()?.forEach { _ ->
-                    binding.rvPhotos.apply {
-                        layoutManager = LinearLayoutManager(this@MainActivity)
-                        adapter = PhotosAdapter(this@MainActivity, photosList.body())
-                    }
+                binding.rvPhotos.apply {
+                    layoutManager = LinearLayoutManager(this@MainActivity)
+                    adapter = PhotosAdapter(this@MainActivity, photosList.body())
                 }
             }
         }

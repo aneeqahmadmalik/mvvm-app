@@ -11,7 +11,8 @@ import com.bumptech.glide.Glide
 class PhotosAdapter(val context: Context, val list: List<PhotosResponseItem>?) :
     RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
 
-    inner class PhotosViewHolder(private val binding: PhotosItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PhotosViewHolder(private val binding: PhotosItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PhotosResponseItem?) {
             Glide.with(context).load(item?.url).into(binding.ivPhoto)
             binding.tvPhotoTitle.text = item?.title
@@ -19,7 +20,8 @@ class PhotosAdapter(val context: Context, val list: List<PhotosResponseItem>?) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
-        val itemBinding = PhotosItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding =
+            PhotosItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PhotosViewHolder(itemBinding)
     }
 

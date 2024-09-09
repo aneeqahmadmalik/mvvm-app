@@ -3,7 +3,6 @@ package com.aneeque.mvvm_app.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.aneeque.mvvm_app.db.User
 
 @Dao
 interface UserDao {
